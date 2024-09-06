@@ -1,6 +1,6 @@
 describe('Pruebas de servicios REST en Demoblaze', () => {
   
-    // Prueba de Signup: Crear un nuevo usuario
+    // 1 Crear un nuevo usuario
     it('Crear un nuevo usuario en signup', () => {
       const nuevoUsuario = {
         username: `user_${Math.random().toString(36).substring(2, 10)}`,
@@ -20,7 +20,7 @@ describe('Pruebas de servicios REST en Demoblaze', () => {
       });
     });
   
-    // Prueba de Signup: Intentar crear un usuario ya existente
+    // 2 Intentar crear un usuario ya existente
     it('Intentar crear un usuario que ya existe', () => {
       const usuarioExistente = {
         username: 'usuarioExistente',
@@ -41,7 +41,7 @@ describe('Pruebas de servicios REST en Demoblaze', () => {
       });
     });
   
-    // Prueba de Login: Con credenciales correctas
+    // 3 Con credenciales correctas
     it('Login con usuario y password correctos', () => {
       const credencialesCorrectas = {
         username: 'usuarioExistente',
@@ -61,7 +61,7 @@ describe('Pruebas de servicios REST en Demoblaze', () => {
       });
     });
   
-    // Prueba de Login: Con credenciales incorrectas
+    // 4 Con credenciales incorrectas
     it('Login con usuario y password incorrectos', () => {
       const credencialesIncorrectas = {
         username: 'usuarioExistente',
@@ -77,7 +77,7 @@ describe('Pruebas de servicios REST en Demoblaze', () => {
         },
         failOnStatusCode: false
       }).then((response) => {
-        expect(response.status).to.eq(401);  // O el código de error que devuelva la API
+        expect(response.status).to.eq(401); 
         cy.log(response.body);
       });
     });
